@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Fleury Michon</title>
+    </head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <body>
+        <style>@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+            *
+            {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+            }
+            body
+            {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background: #fff;
+                transform: translate(0px,-250px);
+            }
+            .search
+            {
+                position: relative;
+                width: 60px;
+                height: 60px;
+                background: #fff;
+                border-radius: 60px;
+                transition: 0.5s;
+                box-shadow: 0 0 0 5px #00833E;
+                overflow: hidden;
+            }
+            .search.active
+            {
+                width: 460px;
+            }
+            .search .icon
+            {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 60px;
+                height: 60px;
+                background: #fff;
+                border-radius: 60px;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+                cursor: pointer;
+            }
+            .search .icon::before
+            {
+                content: '';
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                border: 3px solid  #00833E;
+                border-radius: 50%;
+                transform: translate(15px,18px);
+            }
+            .search .icon::after
+            {
+                content: '';
+                position: absolute;
+                width: 3px;
+                height: 12px;
+                background:  #00833E;
+                transform: translate(34px,32px) rotate(315deg);
+            }
+            .search .input
+            {
+                position: relative;
+                width: 300px;
+                height: 60px;
+                top: 5px;
+                left: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .search .input input
+            {
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                border: none;
+                outline: none;
+                font-size: 18px;
+                padding: 10px 0;
+            }
+            .clear
+            {
+                position: absolute;
+                top: 40%;
+                transform: translate(-50%);
+                width: 15px;
+                height: 15px;
+                right: 15px;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .clear::before
+            {
+                position: absolute;
+                content: '';
+                width: 1px;
+                height: 15px;
+                background: #999;
+                transform: rotate(45deg);
+            
+            }
+            .clear::after
+            {
+                position: absolute;
+                content: '';
+                width: 1px;
+                height: 15px;
+                background: #999;
+                transform: rotate(315deg);
+            }
+            .title
+            {
+                position: absolute;
+                transform: translate(0px, -120px);
+                width: 400px;
+                height: 150px;
+            }
+            .subtitle
+            {
+                position: absolute;
+                transform: translate(0px, -50px);
+                font-size:30px;
+                font-weight:400;
+                color: #00833E;
+            }
+            .rech
+            {
+                position: absolute;
+                transform: translate(0px, 1500px);
+                width: 1500px;
+                height: 2900px;
+                background: #00833E;
+            }
+            .rech2
+            {
+                position: absolute;
+                transform: translate(330px, 50px);
+                width: 850px;
+                height: 3000px;
+                background: white;
+            }
+            h1
+            {
+                text-align: right;
+                transform: translate(-100px, 50px);
+                color: black;
+            }
+            h2
+            {
+                transform: translate(350px, -50px);
+                color: black;
+            }
+            </style>
+            <img class="title" src="/logo/FleuryMichon_LogoCourt.png">
+            <div class="subtitle">EPITECH & EDHEC</div>
+        <div class="search">
+            <div class="icon"></div>
+            <div class="input">
+                <input type="file" placeholder="Search" id="mysearch">
+            </div>
+            <span class="clear" onclick="document.getElementById('mysearch').value = ''"></span>
+        </div>
+    <script>
+        const icon = document.querySelector('.icon');
+        const search = document.querySelector('.search');
+        icon.onclick = function(){
+            search.classList.toggle('active')
+        }
+
+        const callAPI = () => {
+            let filePath = document.getElementById('mysearch').value;
+            filePath = filePath.replace('C:\\fakepath\\', '/Users/robert/edhec_IA/B-PRO-995-NCE-0-1-edhecepitech-clement1.berard/datasetTest/ham/');
+            
+            fetch(`http://localhost:3000/salut?imageName=${filePath}`).then((res) => {
+                console.log(res);
+            });
+
+
+
+        };
+    </script> 
+
+    <input type="button" id='script' name="scriptbutton" value=" Search " onclick='callAPI()'>
+    <div class="rech"><div class="rech2"><a id="yourcontainer"></a></div></div>
+<script>
+    const callJSON = () => {
+        var json = fetch("/result.json")
+        .then(response => response.json())
+        .then(json => {
+            console.log(json)
+            for( var i=0; i<5; ++i ) {
+            images += '<h2> ' + json['fleury'][1]['type'] + '</h2> <h1>' + '<a href="' + json['fleury'][i]['web'] + '">'+json['fleury'][i]['name']+'</a></h1> <img src="' + json['fleury'][i]['image'] + '" />';
+        }
+        document.getElementById( 'yourcontainer' ).innerHTML = images;
+        });
+        var images = '';
+        console.log(json["fleury"][1]["image"])
+}
+    var intervalID = setInterval(callJSON, 1000)
+  </script>
+    </body>
+</html>
