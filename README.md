@@ -1,6 +1,10 @@
 # Visual Search
 Epitech-Edhec Project, Visual search
 
+## But du projet
+
+Partenariat entre les étudiants de 3ème année d'EPITECH et des étudiants de dernière année de l'EDHEC pour la réalisation d'un projet pour l'entreprise Fleury-Michon en lien avec le Visual Search.
+
 ## Infos
 
 Permet de créer avec Tensorflow et Keras une reconnaissance d'image entre 5 types de nourritures différentes, avec des algorithmes de deep learning.
