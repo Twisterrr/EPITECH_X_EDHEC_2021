@@ -5,6 +5,8 @@ Epitech-Edhec Project, Visual search
 
 Partenariat entre les étudiants de 3ème année d'EPITECH et des étudiants de dernière année de l'EDHEC pour la réalisation d'un projet pour l'entreprise Fleury-Michon en lien avec le Visual Search.
 
+Avec une photo de votre frigo, l'IA va analyser la photo et reconnaître les aliments afin de vous proposer des recettes/plats présent sur le site de Fleury-michon.
+
 ## Infos
 
 Permet de créer avec Tensorflow et Keras une reconnaissance d'image entre 5 types de nourritures différentes, avec des algorithmes de deep learning.
