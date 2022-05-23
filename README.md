@@ -1,6 +1,8 @@
 # Visual Search
 Epitech-Edhec Project, Visual search
 
+![visitor badge](https://visitor-badge.glitch.me/badge?page_id=twisterrr.epitech_x_edhec_2021&left_color=purple&right_color=grey)
+
 ## But du projet
 
 Partenariat entre les étudiants de 3ème année d'EPITECH et des étudiants de dernière année de l'EDHEC pour la réalisation d'un projet pour l'entreprise Fleury-Michon en lien avec le Visual Search.
